@@ -79,7 +79,7 @@
   <section id="bezahlung">
     <h2>Bezahlung</h2>
     <p>
-      Bezahlung gerne per Überweisung oder per PayPal (Infos sende ich in der Bestellbestätigung) oder auch bar bei Abholung.
+      Bezahlung gerne per Überweisung oder per PayPal (Infos sende ich separat zu) oder auch bar bei Abholung.
     </p>
   </section>
 
@@ -106,37 +106,16 @@
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
       <div class="frage">
-        <p class="frage-titel">1. Welchen Honig möchtest du?</p>
-        <label class="auswahl-kachel">
-          <input type="radio" name="Honigsorte" value="Blüte (hell, cremig, süß)" checked />
-          🌻 Blüte (hell, cremig, süß) – 6&nbsp;€
-        </label>
-        <label class="auswahl-kachel">
-          <input type="radio" name="Honigsorte" value="Wald (dunkel, flüssig, herb)" />
-          🌲 Wald (dunkel, flüssig, herb) – 6&nbsp;€
-        </label>
+        <p class="frage-titel">1. Wie viele Gläser möchtest du von welcher Sorte?</p>
+        <label class="textfeld-label" for="menge-bluete">🌻 Blüte (hell, cremig, süß) – 6&nbsp;€ / Glas</label>
+        <input type="number" id="menge-bluete" name="Anzahl Blüte" min="0" value="0" />
+
+        <label class="textfeld-label" for="menge-wald">🌲 Wald (dunkel, flüssig, herb) – 6&nbsp;€ / Glas</label>
+        <input type="number" id="menge-wald" name="Anzahl Wald" min="0" value="0" />
       </div>
 
       <div class="frage">
-        <p class="frage-titel">2. Wie viele Gläser?</p>
-        <label class="auswahl-kachel">
-          <input type="radio" name="Menge" value="1 Glas" checked />
-          1 Glas
-        </label>
-        <label class="auswahl-kachel">
-          <input type="radio" name="Menge" value="2 Gläser" />
-          2 Gläser
-        </label>
-        <label class="auswahl-kachel">
-          <input type="radio" name="Menge" value="Mehr, siehe Anzahl-Feld" />
-          Mehr (Anzahl unten eintragen)
-        </label>
-        <label class="textfeld-label" for="anzahl">Anzahl, falls "Mehr" ausgewählt:</label>
-        <input type="number" id="anzahl" name="Anzahl (falls Mehr)" min="1" placeholder="z. B. 3" />
-      </div>
-
-      <div class="frage">
-        <p class="frage-titel">3. Wie möchtest du deinen Honig erhalten?</p>
+        <p class="frage-titel">2. Wie möchtest du deinen Honig erhalten?</p>
         <label class="auswahl-kachel">
           <input type="radio" name="Abholung_oder_Lieferung" value="Abholung in Langquaid" checked />
           🚶 Abholung in Langquaid
@@ -148,7 +127,7 @@
       </div>
 
       <div class="frage">
-        <p class="frage-titel">4. Deine Kontaktdaten</p>
+        <p class="frage-titel">3. Deine Kontaktdaten</p>
         <label class="textfeld-label" for="name">Name</label>
         <input type="text" id="name" name="Name" required placeholder="Vor- und Nachname" />
 
@@ -159,6 +138,18 @@
       <button type="submit" class="absenden-knopf">Jetzt bestellen</button>
     </form>
   </section>
+
+  <script>
+    // Verhindert eine leere Bestellung (0 Gläser insgesamt)
+    document.querySelector('#bestellen form').addEventListener('submit', function (e) {
+      var bluete = parseInt(document.getElementById('menge-bluete').value, 10) || 0;
+      var wald = parseInt(document.getElementById('menge-wald').value, 10) || 0;
+      if (bluete + wald <= 0) {
+        e.preventDefault();
+        alert('Bitte gib mindestens ein Glas Honig an (Blüte oder Wald).');
+      }
+    });
+  </script>
 
   <!-- ============================================================
        ALTERNATIVE: BESTELLUNG PER WHATSAPP
