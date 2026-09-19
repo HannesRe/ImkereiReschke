@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Honig direkt vom Imker – Johannes Reschke</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       KOPFBEREICH
+       Hier änderst du die Überschrift ganz oben auf der Seite.
+       ============================================================ -->
+  <header class="kopfbereich">
+    <h1>🍯 Honig direkt vom Imker</h1>
+    <p>Frischer Honig aus Langquaid</p>
+  </header>
+
+  <img src="wabe.jpg" alt="Bienenwabe voller Bienen" class="hero-bild" />
+
+  <!-- ============================================================
+       ÜBER MICH
+       Diesen Text kannst du frei anpassen.
+       ============================================================ -->
+  <section id="ueber-mich">
+    <h2>Über mich</h2>
+    <img src="JohannesReschke.jpg" alt="Johannes Reschke" class="bild-rund" />
+    <p>
+      Hallo, ich bin Johannes (Hannes) Reschke und imkere als Hobby in
+      Langquaid. Meine Bienen sammeln fleißig Nektar in und um Langquaid,
+      und ich schleudere daraus meinen eigenen Honig – in kleinen Mengen,
+      dafür mit viel Liebe zum Detail.
+    </p>
+    <p>
+      Auf dieser Seite kannst du bequem Honig bei mir bestellen. Ich freue
+      mich auf deine Bestellung! 😊🐝
+    </p>
+  </section>
+
+  <!-- ============================================================
+       HONIG-ANGEBOT
+       Sorten, Beschreibung und Preise änderst du hier.
+       ============================================================ -->
+  <section id="angebot">
+    <h2>Mein Honig</h2>
+    <div class="honig-karten">
+      <div class="honig-karte">
+        <h3>🌻 Blüte</h3>
+        <p>hell, cremig, süß</p>
+        <p class="preis">6&nbsp;€ / 500-g-Glas</p>
+      </div>
+      <div class="honig-karte">
+        <h3>🌲 Wald</h3>
+        <p>dunkel, flüssig, herb</p>
+        <p class="preis">6&nbsp;€ / 500-g-Glas</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABHOLUNG & LIEFERUNG
+       Trage hier deine Abholadresse(n) ein.
+       ============================================================ -->
+  <section id="abholung">
+    <h2>Abholung &amp; Lieferung</h2>
+    <p>Der Honig kann abgeholt werden bei:</p>
+    <ul>
+      <li>Mir, Am Huberbräukeller 28</li>
+      <li>Meinen Eltern, Hans-Wimmer-Weg 2</li>
+    </ul>
+    <p>Im Ortsgebiet Langquaid liefere ich den Honig auch gerne aus (je nach Wetter und Woche kann das ein paar Tage dauern).</p>
+  </section>
+
+  <!-- ============================================================
+       BEZAHLUNG
+       Trage hier deine Zahlungsdaten ein (IBAN, PayPal, o. Ä.).
+       ============================================================ -->
+  <section id="bezahlung">
+    <h2>Bezahlung</h2>
+    <p>
+      Bezahlung gerne per Überweisung oder per PayPal (Infos sende ich in der Bestellbestätigung) oder auch bar bei Abholung.
+    </p>
+  </section>
+
+  <!-- ============================================================
+       BESTELLFORMULAR
+       Das Formular schickt jede Bestellung automatisch per E-Mail an dich.
+       Der Versand läuft über den kostenlosen Dienst FormSubmit.co.
+
+       WICHTIG: Nach dem allerersten Test wirst du eine E-Mail von
+       FormSubmit erhalten, in der du deine Adresse einmalig bestätigen
+       musst (auf einen Link klicken). Erst danach kommen Bestellungen an.
+       ============================================================ -->
+  <section id="bestellen">
+    <h2>Jetzt bestellen</h2>
+    <form action="https://formsubmit.co/reschkejo@gmail.com" method="POST">
+
+      <!-- Diese versteckten Felder sorgen für eine übersichtliche E-Mail
+           und leiten den Kunden nach dem Absenden auf eine Dankeseite. -->
+      <input type="hidden" name="_subject" value="Neue Honig-Bestellung über die Webseite" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_next" value="danke.html" />
+      <input type="hidden" name="_captcha" value="false" />
+      <!-- Spamschutz: dieses Feld bleibt für echte Besucher unsichtbar -->
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+      <div class="frage">
+        <p class="frage-titel">1. Welchen Honig möchtest du?</p>
+        <label class="auswahl-kachel">
+          <input type="radio" name="Honigsorte" value="Blüte (hell, cremig, süß)" checked />
+          🌻 Blüte (hell, cremig, süß) – 6&nbsp;€
+        </label>
+        <label class="auswahl-kachel">
+          <input type="radio" name="Honigsorte" value="Wald (dunkel, flüssig, herb)" />
+          🌲 Wald (dunkel, flüssig, herb) – 6&nbsp;€
+        </label>
+      </div>
+
+      <div class="frage">
+        <p class="frage-titel">2. Wie viele Gläser?</p>
+        <label class="auswahl-kachel">
+          <input type="radio" name="Menge" value="1 Glas" checked />
+          1 Glas
+        </label>
+        <label class="auswahl-kachel">
+          <input type="radio" name="Menge" value="2 Gläser" />
+          2 Gläser
+        </label>
+        <label class="auswahl-kachel">
+          <input type="radio" name="Menge" value="Mehr, siehe Anzahl-Feld" />
+          Mehr (Anzahl unten eintragen)
+        </label>
+        <label class="textfeld-label" for="anzahl">Anzahl, falls "Mehr" ausgewählt:</label>
+        <input type="number" id="anzahl" name="Anzahl (falls Mehr)" min="1" placeholder="z. B. 3" />
+      </div>
+
+      <div class="frage">
+        <p class="frage-titel">3. Wie möchtest du deinen Honig erhalten?</p>
+        <label class="auswahl-kachel">
+          <input type="radio" name="Abholung_oder_Lieferung" value="Abholung in Langquaid" checked />
+          🚶 Abholung in Langquaid
+        </label>
+        <label class="auswahl-kachel">
+          <input type="radio" name="Abholung_oder_Lieferung" value="Lieferung im Ortsgebiet Langquaid" />
+          🏃 Lieferung im Ortsgebiet Langquaid
+        </label>
+      </div>
+
+      <div class="frage">
+        <p class="frage-titel">4. Deine Kontaktdaten</p>
+        <label class="textfeld-label" for="name">Name</label>
+        <input type="text" id="name" name="Name" required placeholder="Vor- und Nachname" />
+
+        <label class="textfeld-label" for="telefon">WhatsApp-Nummer oder E-Mail</label>
+        <input type="text" id="telefon" name="Kontakt (Telefon oder E-Mail)" required placeholder="z. B. 0151 1234567" />
+      </div>
+
+      <button type="submit" class="absenden-knopf">Jetzt bestellen</button>
+    </form>
+  </section>
+
+  <!-- ============================================================
+       ALTERNATIVE: BESTELLUNG PER WHATSAPP
+       Trage hier deine eigene WhatsApp-Nummer ein!
+       Format: 49 + Nummer ohne die führende 0
+       Beispiel: aus "0151 2345678" wird "4915122345678"
+       ============================================================ -->
+  <section id="whatsapp">
+    <div class="whatsapp-box">
+      <h2 style="border:none;">Lieber direkt schreiben?</h2>
+      <p>
+        Kein Problem! Du kannst deine Bestellung auch einfach per
+        WhatsApp-Nachricht an mich schicken oder anrufen.
+      </p>
+      <a
+        class="whatsapp-knopf"
+        href="https://wa.me/4915154808487"
+        target="_blank"
+        rel="noopener"
+      >
+        📲 Jetzt per WhatsApp bestellen
+      </a>
+      <p style="font-size:0.85rem; opacity:0.8;">
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; Johannes Reschke &middot; <a href="impressum.html">Impressum</a>
+  </footer>
+
+</body>
+</html>
